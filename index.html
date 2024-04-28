@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <form action="/add_reflection" method="post">
+
+        <label for="date">Date: </label>
+        <input type="date" id="date" name="date" required>
+
+
+        <label for="category">Category:</label>
+        <select name="category">
+            <option value="Work">Work</option>
+            <option value="Watch Read">Watch Read</option>
+            <option value="Good Habit">Good Habit</option>
+            <option value="Money">Money</option>
+            <option value="New Start">New Start</option>
+            <option value="New Idea">New Idea</option>
+            <option value="Bad Habit">Bad Habit</option>
+            <option value="Close Relation">Close Relation</option>
+        </select>
+
+        <label for="content">Content: </label>
+        <textarea id="content" name="content" placeholder="Enter Your Reflection" rows="3" cols="50" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

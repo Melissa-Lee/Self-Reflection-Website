@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <style>
+
+        .centered
+        {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+
+    <h2 class="centered">
+        Records
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Content</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reflection in reflections %}
+                <tr>
+                    <td>{{ reflection.date }}</td>
+                    <td>{{ reflection.category }}</td>
+                    <td>{{ reflection.content }}</td>
+                    <td>
+                        <form action="/remove" method="post">
+                            <input name="id" type="hidden" value="{{ reflection.id }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
